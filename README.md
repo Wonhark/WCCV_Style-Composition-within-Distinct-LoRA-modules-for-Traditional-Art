@@ -2,6 +2,7 @@
 
 
 ## 1. Train each style using LoRA adapters
+​```
 CUDA_VISIBLE_DEVICES=5 accelerate launch /workspace/train_dreambooth_lora_flux_schnell.py \
     --instance_data_dir '/data/trad_art_25/style_data/color_painting/gongpil' \
     --output_dir "/data/trad_art_25/flux/outputs/color_painting/gongpil/" \
@@ -19,7 +20,8 @@ CUDA_VISIBLE_DEVICES=5 accelerate launch /workspace/train_dreambooth_lora_flux_s
     --seed 0 \
     --rank 16 \
     --validation_epochs 3500
-
+​```
+​```
 CUDA_VISIBLE_DEVICES=5 accelerate launch /workspace/train_dreambooth_lora_flux_schnell.py \
     --instance_data_dir '/data/trad_art_25/style_data/color_painting/ilpil' \
     --output_dir "/data/trad_art_25/flux/outputs/color_painting/ilpil/" \
@@ -37,12 +39,15 @@ CUDA_VISIBLE_DEVICES=5 accelerate launch /workspace/train_dreambooth_lora_flux_s
     --seed 0 \
     --rank 16 \
     --validation_epochs 3500
+​```
 
 ## 2. Style composition of distinct LoRA models
 Put prompts in the style_mixing.py file, then run
 
+​```
 CUDA_VISIBLE_DEVICES=5 python3 /workspace/style_mixing.py \
     --output_path '/samples' \
     --project_name '/gongpil_ilpil' \
     --lora_path1 '/data/trad_art_25/flux/outputs/color_painting/gongpil/checkpoint-3500' \
     --lora_path2 '/data/trad_art_25/flux/outputs/color_painting/ilpil/checkpoint-3500' \
+​```
