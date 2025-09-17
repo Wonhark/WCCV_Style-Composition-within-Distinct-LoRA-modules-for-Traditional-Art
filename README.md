@@ -40,6 +40,7 @@ CUDA_VISIBLE_DEVICES=5 accelerate launch /workspace/train_dreambooth_lora_flux_s
 
 ## 2. Style composition of distinct LoRA models
 Put prompts in the style_mixing.py file, then run
+
 CUDA_VISIBLE_DEVICES=5 python3 /workspace/style_mixing.py \
     --output_path '/samples' \
     --project_name '/gongpil_ilpil' \
