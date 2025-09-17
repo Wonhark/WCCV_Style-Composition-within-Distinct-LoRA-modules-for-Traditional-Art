@@ -2,7 +2,8 @@
 
 
 ## 1. Train each style using LoRA adapters
-​```
+
+​```bash
 CUDA_VISIBLE_DEVICES=5 accelerate launch /workspace/train_dreambooth_lora_flux_schnell.py \
     --instance_data_dir '/data/trad_art_25/style_data/color_painting/gongpil' \
     --output_dir "/data/trad_art_25/flux/outputs/color_painting/gongpil/" \
@@ -21,7 +22,8 @@ CUDA_VISIBLE_DEVICES=5 accelerate launch /workspace/train_dreambooth_lora_flux_s
     --rank 16 \
     --validation_epochs 3500
 ​```
-​```
+
+​```bash
 CUDA_VISIBLE_DEVICES=5 accelerate launch /workspace/train_dreambooth_lora_flux_schnell.py \
     --instance_data_dir '/data/trad_art_25/style_data/color_painting/ilpil' \
     --output_dir "/data/trad_art_25/flux/outputs/color_painting/ilpil/" \
@@ -44,7 +46,7 @@ CUDA_VISIBLE_DEVICES=5 accelerate launch /workspace/train_dreambooth_lora_flux_s
 ## 2. Style composition of distinct LoRA models
 Put prompts in the style_mixing.py file, then run
 
-​```
+​```bash
 CUDA_VISIBLE_DEVICES=5 python3 /workspace/style_mixing.py \
     --output_path '/samples' \
     --project_name '/gongpil_ilpil' \
